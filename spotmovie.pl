@@ -29,7 +29,7 @@ Future development:
 2) Could email results rather than write to file
 3) In first part of code where WANTED data is being partitioned, Could
    try to use the "push" function, rather than the false loop
-4) Might want to extra the debug level handling into a function
+4) Might want to extract the debug level handling into a function
 
 =cut
 
