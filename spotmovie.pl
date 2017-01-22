@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-$id="Perl script: spotmovie.pl version 0.1.0, 10/1/17";
+$id="Perl script: spotmovie.pl version 0.1.1, 22/01/17";
 
 =begin
 
@@ -175,11 +175,13 @@ foreach $a (@wantedname) {
         print OUT "$divider\n";
       }
 
-      push(@found,$a);
+      push(@found,"Found: ".$a); #C1
+      push(@found,$t); # C1
 		}
 	}
 }
 
+=begin #C1
 # Reduce found items to unique items
 %got = ();
 foreach (@found) {$got{$_} = 1};
@@ -187,11 +189,12 @@ foreach (@found) {$got{$_} = 1};
 
 # Sort the unique items
 @unifound = sort(@unifound);
+=cut
 
-# Print results to file
-print OUT "Wanted Movies potentially found: ".scalar(@unifound)."\n\n";
-foreach $u (@unifound) {
-  print OUT "Found: $u\n";
+# Print results to file # C1
+print OUT "Wanted Movies potentially found:\n\n";
+foreach $u (@found) {
+  print OUT "$u\n";
 }
 
 # Get date and time, write to file and close file

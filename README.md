@@ -28,3 +28,19 @@ Future development:
 3) In first part of code where WANTED data is being partitioned, Could
    try to use the "push" function, rather than the false loop
 4) Might want to extract the debug level handling into a function.
+
+Changes
+=======
+
+<Item C1 (22/01/17)>
+
+spotmovie.pl version 0.1.1, 22/01/17"
+
+Output only lists the movie titles found. It would be more useful to list
+these alongside the schedule items they were found in to see at once which
+comparisons were spurious.
+
+1. Put "Found" string into Line 178
+2. Added Line 179
+3. Bracketed Lines 185 - 191, removing unifound array
+4. Changed unifound array to found array in Lines 195 - 197
