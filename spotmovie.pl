@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-$id="Perl script: spotmovie.pl version 0.1.1, 22/01/17";
+$id="Perl script: spotmovie.pl version 0.1.2, 24/01/17";
 
 =begin
 
@@ -59,6 +59,10 @@ print OUT "Run started $datestring\n\n";
 # Open HanDBase file
 open (WANTED, "</mnt/jdm_wd3t/devprojects/HanDBase/temp.txt")
   || die "Cannot open temp.txt: $!\n";
+
+# Print file date to output
+print OUT "File temp.txt last changed ",
+     scalar localtime((stat(WANTED))[9]), "\n\n";
 
 # Read WANTED records, remove EOL and close
 @wanted=<WANTED>;
@@ -122,6 +126,10 @@ if ($debug == 1) {
 # Open list.xmltv input file
 open (SCHEDULE, "</home/pi/.freeguide/list.xmltv")
       || die "Cannot open list.xmltv: $!\n";
+
+# Print file date to output
+print OUT "File list.xmltv last changed ",
+     scalar localtime((stat(SCHEDULE))[9]), "\n\n";
 
 # Read schedule list file, remove EOL and close
 @schedule=<SCHEDULE>;
